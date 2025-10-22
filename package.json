@@ -1,0 +1,12 @@
+{
+  "name": "birthday",
+  "version": "1.0.0",
+  "description": "Simple HTML project using Tailwind CSS",
+  "scripts": {
+    "dev": "tailwindcss -i ./style.css -o ./output.css --watch",
+    "build": "tailwindcss -i ./style.css -o ./output.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.18"
+  }
+}

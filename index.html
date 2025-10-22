@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lá thư sinh nhật 💌</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: 'Playfair Display', serif;
+      }
+      .font-romantic {
+        font-family: 'Great Vibes', cursive;
+      }
+      /* Hiệu ứng mượt */
+      .transition-all {
+        transition: all 0.7s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body class="relative overflow-hidden bg-gradient-to-b from-pink-100 to-pink-300 min-h-screen">
+
+    <!-- 🎂 Cảnh bánh sinh nhật -->
+    <div
+      id="birthday-scene"
+      class="transition-all duration-700 ease-in-out opacity-100 scale-100 flex flex-col items-center justify-center h-screen text-center"
+    >
+      <h1 class="font-romantic text-5xl text-pink-700 mb-6">
+        Happy Birthday Babe 🎂
+      </h1>
+
+      <p class="text-gray-700 text-lg mb-10">
+        Hôm nay là ngày thật đặc biệt của bạn 💖
+      </p>
+
+      <!-- Nút nhấn -->
+      <button
+        id="btn"
+        class="text-2xl font-romantic bg-white/20 px-6 py-3 rounded-xl border border-white backdrop-blur-md hover:bg-white/40 transition-all duration-500 text-white shadow-lg"
+      >
+        Nhấn vào đây đi...
+      </button>
+    </div>
+
+    <!-- 💌 Cảnh lá thư -->
+    <div
+      id="letter-scene"
+      class="fixed inset-0 flex items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-700 ease-in-out"
+    >
+      <div
+        class="bg-white w-[90%] max-w-lg p-8 rounded-2xl shadow-2xl relative overflow-hidden border border-pink-200"
+      >
+        <div
+          class="absolute -top-4 -left-4 w-16 h-16 bg-pink-300 rotate-45 opacity-60"
+        ></div>
+
+        <div class="relative text-center">
+          <h1 class="font-romantic text-5xl text-pink-700 mb-6">
+            Gửi đến bạn 💌
+          </h1>
+
+          <p class="text-gray-700 leading-relaxed">
+            Thân gửi,<br /><br />
+            Mình viết vài dòng này chỉ để nói rằng bạn là một người thật đặc biệt 💖<br /><br />
+            Mong rằng hôm nay của bạn sẽ nhẹ nhàng và ấm áp như ánh nắng ban mai.<br /><br />
+            Cảm ơn vì bạn đã đến trong cuộc đời này 💫<br /><br />
+            <span class="text-pink-600 italic font-romantic text-3xl">
+              Thân mến,<br />Người gửi bí mật ✨
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🌸 Script chuyển cảnh -->
+    <script>
+      const btn = document.getElementById("btn");
+      const cakeScene = document.getElementById("birthday-scene");
+      const letterScene = document.getElementById("letter-scene");
+
+      btn.addEventListener("click", () => {
+        // Ẩn cảnh bánh sinh nhật (fade out + thu nhỏ)
+        cakeScene.classList.add("opacity-0", "scale-95");
+        cakeScene.classList.remove("opacity-100", "scale-100");
+
+        // Sau 700ms -> ẩn hẳn cảnh bánh, hiện lá thư
+        setTimeout(() => {
+          cakeScene.classList.add("hidden");
+          letterScene.classList.remove(
+            "opacity-0",
+            "scale-95",
+            "pointer-events-none"
+          );
+          letterScene.classList.add("opacity-100", "scale-100");
+        }, 700);
+      });
+    </script>
+  </body>
+</html>
